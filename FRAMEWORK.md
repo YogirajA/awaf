@@ -6,7 +6,7 @@ Full pillar definitions for the AI Agents Well-Architected Framework.
 
 ## Foundation (Prerequisite)
 
-**Vertical Slice & Autonomy** — Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data.
+**Vertical Slice & Autonomy**: Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data.
 
 ---
 
@@ -32,7 +32,7 @@ Optimizes execution speed and resource usage across agent operations, adapted fr
 
 ### 5. Cost Optimization
 
-Tracks every token and tool call. Implements session budgets and loop detection from day one. Hard stop at 100% budget — non-negotiable. Prevents solutions that cost more than the problems they solve.
+Tracks every token and tool call. Implements session budgets and loop detection from day one. Hard stop at 100% budget. Non-negotiable. Prevents solutions that cost more than the problems they solve.
 
 ### 6. Sustainability
 
@@ -44,7 +44,7 @@ Long-term viability and environmental considerations, adapted from cloud WAF pri
 
 ### 7. Reasoning Integrity
 
-Addresses silent, confident failures — the worst failure type. Agents can hallucinate arguments, select wrong tools, or derail without visible errors. Requires evals covering tool selection, argument accuracy, and chain-of-thought faithfulness. MCP should provide provenance metadata on every response.
+Addresses silent, confident failures, the worst failure type. Agents can hallucinate arguments, select wrong tools, or derail without visible errors. Requires evals covering tool selection, argument accuracy, and chain-of-thought faithfulness. MCP should provide provenance metadata on every response.
 
 ### 8. Controllability
 
@@ -58,6 +58,6 @@ Manages agent perception of reality. Prevents stale context from corrupting reas
 
 ## Implementation Principle
 
-These pillars are **concurrent, not sequential** — they function as load-bearing walls, not sequential steps. The vertical slice foundation must be established first.
+These pillars are **concurrent, not sequential**. They function as load-bearing walls, not sequential steps. The vertical slice foundation must be established first.
 
 Source: [aradhye.com/ai-agents-well-architected-framework](https://aradhye.com/ai-agents-well-architected-framework/)
