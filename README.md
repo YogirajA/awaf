@@ -116,7 +116,7 @@ Every pillar score carries a confidence level based on available evidence:
 | Confidence | Meaning |
 |------------|---------|
 | `verified` | Artifacts were present and analyzed. Score reflects evidence. |
-| `partial` | Some artifacts present, some inaccessible (e.g. cloud configs not in repo). |
+| `partial` | Some evidence assessed, meaningful gaps remain. For static implementations: artifacts present but inaccessible (e.g. cloud configs not in repo). For dialogue-driven implementations: some evidence shared but not all. |
 | `self_reported` | No artifacts found. Score based on absence of evidence. |
 
 A `verified` score of 65 is more meaningful than a `self_reported` score of 90. Confidence must be displayed alongside every score.
