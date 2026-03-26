@@ -56,6 +56,14 @@ Manages agent perception of reality. Prevents stale context from corrupting reas
 
 ---
 
+## Scoring Methodology
+
+Each pillar uses a mechanical risk tally. Every criterion is assigned H (3 pts), M (2 pts), or L (1 pt) and marked pass or fail with a one-line evidence citation. The pillar score equals `round(sum_passed_pts / sum_all_pts × 100)`.
+
+The overall score is a weighted average: `sum(score × weight) / sum(weights)`. Tier 2 pillars carry 1.5× weight. Skipped or not-applicable pillars are excluded from both numerator and denominator.
+
+---
+
 ## Implementation Principle
 
 These pillars are **concurrent, not sequential**. They function as load-bearing walls, not sequential steps. The vertical slice foundation must be established first.
