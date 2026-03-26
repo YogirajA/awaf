@@ -6,7 +6,7 @@ Full pillar definitions for the AI Agents Well-Architected Framework.
 
 ## Foundation (Prerequisite)
 
-**Vertical Slice & Autonomy**: Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data.
+**Vertical Slice & Autonomy**: Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data. Tools must be single-purpose with explicitly described capabilities. Inter-agent data contracts must be typed rather than free-form text.
 
 ---
 
@@ -52,7 +52,7 @@ Maintains human control through code-level enforcement, not prompts. Implements 
 
 ### 9. Context Integrity
 
-Manages agent perception of reality. Prevents stale context from corrupting reasoning. Requires external content sanitization through MCP. Enforces active lifecycle management for long sessions. The agent must understand its own knowledge limitations.
+Manages agent perception of reality. Prevents stale context from corrupting reasoning. Requires external content sanitization through MCP. Enforces active lifecycle management for long sessions. The agent must understand its own knowledge limitations. Agent state must be explicitly persisted during long sessions (scratchpad, memory store, or equivalent) so reasoning survives context degradation and crash-resume cycles. Tool response outputs must be filtered to relevant fields before re-entering context; verbose responses are a context corruption risk.
 
 ---
 
