@@ -76,7 +76,7 @@ Scores are interpreted as bands, not point estimates. LLM-based assessment has i
 | 2 | 25–49 | High Risk | Significant control failures. Not production suitable. |
 | 1 | 0–24 | Not Ready | Critical gaps. Major rework required. |
 
-A band change is only meaningful when: (1) significant agentic code changes are detected, and (2) multiple runs confirm the new band. Use `awaf run --runs N` to verify. Thrashing between bands across single runs should be ignored.
+A band change is only meaningful when: (1) significant agentic code changes were made, and (2) multiple assessment runs confirm the new band. Thrashing between bands across single runs should be ignored.
 
 ---
 
