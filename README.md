@@ -2,7 +2,7 @@
 
 **An open specification for production-ready AI agent architecture.**
 
-[![AWAF Version](https://img.shields.io/badge/AWAF-v1.0-1E3A5F?style=flat-square)](https://github.com/YogirajA/AWAF)
+[![AWAF Version](https://img.shields.io/badge/AWAF-v1.3-1E3A5F?style=flat-square)](https://github.com/YogirajA/AWAF)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
@@ -151,11 +151,11 @@ Read [FRAMEWORK.md](FRAMEWORK.md) for the complete pillar definitions, scoring q
 
 No account, no install, no vendor relationship required.
 
-When citing AWAF, always reference the version: _"This agent is designed to AWAF v1.0."_
+When citing AWAF, always reference the version: _"This agent is designed to AWAF v1.3."_
 
 ### With the reference implementation
 
-[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.0 as a CLI tool and GitHub Action. It runs on every PR that touches agent code and produces a scored report with specific cited findings.
+[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.3 as a CLI tool and GitHub Action. It runs on every PR that touches agent code and produces a scored report with specific cited findings.
 
 ```bash
 pip install awaf
@@ -174,7 +174,10 @@ AWAF is versioned independently of any tool that implements it.
 
 | Version | Status | Notes |
 |---------|--------|-------|
-| v1.0 | **Current** | Initial release. 10 pillars. CI-oriented scoring. |
+| v1.0 | Superseded | Initial release. 10 pillars. CI-oriented scoring. |
+| v1.1 | Superseded | Clarified partial confidence definition. |
+| v1.2 | Superseded | Expanded Foundation and Context Integrity criteria. Added scoring methodology (tally formula, weighted average). |
+| v1.3 | **Current** | Added batching/context bounding criteria, pattern advisory (agent vs. simpler patterns), and band-based scoring guidance. |
 
 Breaking changes to pillar definitions, scoring weights, or question sets constitute a major version bump. Additive changes such as new questions or clarifications are minor versions.
 
