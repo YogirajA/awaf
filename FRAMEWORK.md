@@ -8,7 +8,7 @@ Full pillar definitions for the AI Agents Well-Architected Framework.
 
 **Vertical Slice & Autonomy**: Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data. Tools must be single-purpose with explicitly described capabilities. Inter-agent data contracts must be typed rather than free-form text.
 
-**Pattern justification (advisory)**: The agent pattern is appropriate for complex, multi-step, adaptive tasks with real-time decisions. Deterministic workflows, simple Q&A, or single-shot tool calls are better served by simpler patterns (workflow, augmented LLM, or prompt). If a simpler pattern would suffice, this is surfaced as a Caution finding — not a score penalty. The agent may already be built; this is retrospective guidance.
+**Pattern justification (advisory)**: The agent pattern is appropriate for complex, multi-step, adaptive tasks with real-time decisions. Deterministic workflows, simple Q&A, or single-shot tool calls are better served by simpler patterns (workflow, augmented LLM, or prompt). If a simpler pattern would suffice, this is surfaced as a Caution finding — not a score penalty. The agent may already be built; this is retrospective guidance. The assessor should name the observed pattern (Scratchpad, Chain of Thought, ReAct, Plan & Execute, Reflexion, Self-Consistency, Tool-Augmented Scratchpad, or Memory-Augmented Generation) and the simpler alternative when raising this Caution.
 
 ---
 
@@ -46,15 +46,15 @@ Long-term viability and environmental considerations, adapted from cloud WAF pri
 
 ### 7. Reasoning Integrity
 
-Addresses silent, confident failures, the worst failure type. Agents can hallucinate arguments, select wrong tools, or derail without visible errors. Requires evals covering tool selection, argument accuracy, and chain-of-thought faithfulness. MCP should provide provenance metadata on every response.
+Addresses silent, confident failures, the worst failure type. Agents can hallucinate arguments, select wrong tools, or derail without visible errors. Requires evals covering tool selection, argument accuracy, and chain-of-thought faithfulness. MCP should provide provenance metadata on every response. As advisory (non-scored) signals, the assessor also checks whether chain-of-thought is visible rather than asserted, whether ReAct observations are incorporated before the next action, whether planning is separated from execution, whether Reflexion critiques are reused, and whether Self-Consistency's N is justified.
 
 ### 8. Controllability
 
-Maintains human control through code-level enforcement, not prompts. Implements trust tiers at the MCP layer. Any in-flight agent must be externally stoppable. Provides pause, notify, and resume/abort primitives.
+Maintains human control through code-level enforcement, not prompts. Implements trust tiers at the MCP layer. Any in-flight agent must be externally stoppable. Provides pause, notify, and resume/abort primitives. As an advisory (non-scored) signal, the assessor checks whether a Plan & Execute agent exposes a plan that can be inspected and interrupted before or between steps, not only killed outright.
 
 ### 9. Context Integrity
 
-Manages agent perception of reality. Prevents stale context from corrupting reasoning. Requires external content sanitization through MCP. Enforces active lifecycle management for long sessions. The agent must understand its own knowledge limitations. Agent state must be explicitly persisted during long sessions (scratchpad, memory store, or equivalent) so reasoning survives context degradation and crash-resume cycles. Tool response outputs must be filtered to relevant fields before re-entering context; verbose responses are a context corruption risk. Context size must be actively bounded: the agent must prune, summarize, or offload context before approaching window limits rather than silently degrading as the window fills.
+Manages agent perception of reality. Prevents stale context from corrupting reasoning. Requires external content sanitization through MCP. Enforces active lifecycle management for long sessions. The agent must understand its own knowledge limitations. Agent state must be explicitly persisted during long sessions (scratchpad, memory store, or equivalent) so reasoning survives context degradation and crash-resume cycles. Tool response outputs must be filtered to relevant fields before re-entering context; verbose responses are a context corruption risk. Context size must be actively bounded: the agent must prune, summarize, or offload context before approaching window limits rather than silently degrading as the window fills. As advisory (non-scored) signals, the assessor also checks whether a compression or retrieval strategy bounds Memory-Augmented Generation, whether a Tool-Augmented Scratchpad trace is bounded and persisted, and whether Reflexion outcomes are written back to a memory store.
 
 ---
 
