@@ -103,9 +103,9 @@ overall = sum(score * (1.5 if tier == 2 else 1.0) for each pillar) /
 
 | Score | Rating | What It Means |
 |-------|--------|---------------|
-| 90 to 100 | **Production Ready** | Architectural patterns are sound across all pillars |
-| 75 to 89 | **Near Ready** | Minor gaps, addressable before production |
-| 50 to 74 | **Needs Work** | Meaningful architectural risks present |
+| 85 to 100 | **Production Ready** | Architectural patterns are sound across all pillars |
+| 70 to 84 | **Near Ready** | Minor gaps, addressable before production |
+| 50 to 69 | **Needs Work** | Meaningful architectural risks present |
 | 25 to 49 | **High Risk** | Structural problems that will cause incidents |
 | 0 to 24 | **Not Ready** | Do not ship to production |
 
