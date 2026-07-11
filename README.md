@@ -2,7 +2,7 @@
 
 **An open specification for production-ready AI agent architecture.**
 
-[![AWAF Version](https://img.shields.io/badge/AWAF-v1.3-1E3A5F?style=flat-square)](https://github.com/YogirajA/AWAF)
+[![AWAF Version](https://img.shields.io/badge/AWAF-v1.4-1E3A5F?style=flat-square)](https://github.com/YogirajA/AWAF)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
@@ -103,9 +103,9 @@ overall = sum(score * (1.5 if tier == 2 else 1.0) for each pillar) /
 
 | Score | Rating | What It Means |
 |-------|--------|---------------|
-| 90 to 100 | **Production Ready** | Architectural patterns are sound across all pillars |
-| 75 to 89 | **Near Ready** | Minor gaps, addressable before production |
-| 50 to 74 | **Needs Work** | Meaningful architectural risks present |
+| 85 to 100 | **Production Ready** | Architectural patterns are sound across all pillars |
+| 70 to 84 | **Near Ready** | Minor gaps, addressable before production |
+| 50 to 69 | **Needs Work** | Meaningful architectural risks present |
 | 25 to 49 | **High Risk** | Structural problems that will cause incidents |
 | 0 to 24 | **Not Ready** | Do not ship to production |
 
@@ -151,11 +151,11 @@ Read [FRAMEWORK.md](FRAMEWORK.md) for the complete pillar definitions, scoring q
 
 No account, no install, no vendor relationship required.
 
-When citing AWAF, always reference the version: _"This agent is designed to AWAF v1.3."_
+When citing AWAF, always reference the version: _"This agent is designed to AWAF v1.4."_
 
 ### With the reference implementation
 
-[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.3 as a CLI tool and GitHub Action. It runs on every PR that touches agent code and produces a scored report with specific cited findings.
+[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.4 as a CLI tool and GitHub Action. It runs on every PR that touches agent code and produces a scored report with specific cited findings.
 
 ```bash
 pip install awaf
@@ -177,7 +177,8 @@ AWAF is versioned independently of any tool that implements it.
 | v1.0 | Superseded | Initial release. 10 pillars. CI-oriented scoring. |
 | v1.1 | Superseded | Clarified partial confidence definition. |
 | v1.2 | Superseded | Expanded Foundation and Context Integrity criteria. Added scoring methodology (tally formula, weighted average). |
-| v1.3 | **Current** | Added batching/context bounding criteria, pattern advisory (agent vs. simpler patterns), and band-based scoring guidance. |
+| v1.3 | Superseded | Added batching/context bounding criteria, pattern advisory (agent vs. simpler patterns), and band-based scoring guidance. |
+| v1.4 | **Current** | Added advisory (non-scored) pattern audit signals to Foundation, Reasoning Integrity, Context Integrity, and Controllability, drawn from the eight agent-pattern glossary. Additive: no scoring changes. |
 
 Breaking changes to pillar definitions, scoring weights, or question sets constitute a major version bump. Additive changes such as new questions or clarifications are minor versions.
 
