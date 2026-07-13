@@ -2,13 +2,15 @@
 
 Full pillar definitions for the AI Agents Well-Architected Framework.
 
+**Specification version: v1.4.** See the [version history](README.md#specification-versioning) for what each version changed.
+
 ---
 
 ## Foundation (Prerequisite)
 
 **Vertical Slice & Autonomy**: Agents must own their domain end-to-end with independent tools, context, and data. A vertically sliced agent owns its domain end-to-end: its tools, its context, its data. Tools must be single-purpose with explicitly described capabilities. Inter-agent data contracts must be typed rather than free-form text.
 
-**Pattern justification (advisory)**: The agent pattern is appropriate for complex, multi-step, adaptive tasks with real-time decisions. Deterministic workflows, simple Q&A, or single-shot tool calls are better served by simpler patterns (workflow, augmented LLM, or prompt). If a simpler pattern would suffice, this is surfaced as a Caution finding, not a score penalty. The agent may already be built; this is retrospective guidance. The assessor should name the observed pattern (Scratchpad, Chain of Thought, ReAct, Plan & Execute, Reflexion, Self-Consistency, Tool-Augmented Scratchpad, or Memory-Augmented Generation) and the simpler alternative when raising this Caution.
+**Pattern justification (advisory)**: The agent pattern is appropriate for complex, multi-step, adaptive tasks with real-time decisions. Deterministic workflows, simple Q&A, or single-shot tool calls are better served by simpler patterns (workflow, augmented LLM, or prompt). If a simpler pattern would suffice, this is surfaced as a Medium finding, not a score penalty. The agent may already be built; this is retrospective guidance. The assessor should name the observed pattern (Scratchpad, Chain of Thought, ReAct, Plan & Execute, Reflexion, Self-Consistency, Tool-Augmented Scratchpad, or Memory-Augmented Generation) and the simpler alternative when raising this Medium finding.
 
 ---
 
@@ -60,9 +62,23 @@ Manages agent perception of reality. Prevents stale context from corrupting reas
 
 ## Scoring Methodology
 
-Each pillar uses a mechanical risk tally. Every criterion is assigned H (3 pts), M (2 pts), or L (1 pt) and marked pass or fail with a one-line evidence citation. The pillar score equals `round(sum_passed_pts / sum_all_pts × 100)`.
+Each pillar uses a mechanical risk tally. Every criterion is assigned H (3 pts), M (2 pts), or L (1 pt) and marked pass or fail with a one-line evidence citation. The pillar score equals `round(sum_passed_pts / sum_all_pts × 100)`. Answering "none of these apply" to a pillar's criteria triggers an automatic High Risk flag and caps that pillar's score at 30, regardless of the tally.
 
 The overall score is a weighted average: `sum(score × weight) / sum(weights)`. Tier 2 pillars carry 1.5× weight. Skipped or not-applicable pillars are excluded from both numerator and denominator.
+
+**Foundation gate.** Foundation is a prerequisite, not one pillar among ten. If Foundation scores below 40, the agent fails and the remaining pillars are not scored: an agent that cannot run independently has a structural problem that higher-level scores would only obscure.
+
+### Confidence Levels
+
+Every pillar score carries a confidence level based on the evidence available:
+
+| Confidence | Meaning |
+|---|---|
+| `verified` | Artifacts were present and analyzed. The score reflects evidence. |
+| `partial` | Some evidence was assessed, but meaningful gaps remain (for example, cloud configs not in the repo, or a dialogue-driven assessment where not all evidence was shared). |
+| `self_reported` | No artifacts were found. The score reflects the absence of evidence. |
+
+A `verified` score of 65 is more meaningful than a `self_reported` score of 90. Confidence must be displayed alongside every score.
 
 ### Readiness Bands
 
