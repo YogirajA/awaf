@@ -28,7 +28,7 @@ The specification defines:
 - What risk levels map to what scores
 - What "Production Ready" vs "High Risk" means, precisely
 
-The reference implementation is [awaf-cli](https://github.com/YogirajA/awaf-cli): a CLI that scores your agent and gates CI by exit code.
+The reference implementation is [awaf-cli](https://github.com/YogirajA/awaf-cli): a CLI and GitHub Action that scores your agent in CI.
 
 ---
 
@@ -155,7 +155,7 @@ When citing AWAF, always reference the version: _"This agent is designed to AWAF
 
 ### With the reference implementation
 
-[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.4 as a CLI tool with CI integration. Wire it into a pull-request check to produce a scored report with specific cited findings.
+[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.4 as a CLI tool and [GitHub Action](https://github.com/YogirajA/awaf-action). Wire it into a scheduled or pull-request check to produce a scored report with specific cited findings.
 
 ```bash
 pip install awaf
@@ -224,7 +224,7 @@ The AWAF name and logo are trademarks of Yogiraj Aradhye. Use of the specificati
 
 ## Related
 
-- [awaf-cli](https://github.com/YogirajA/awaf-cli): Reference implementation with CLI, CI integration, and score history
+- [awaf-cli](https://github.com/YogirajA/awaf-cli): Reference implementation with CLI, GitHub Action, and score history
 - [FRAMEWORK.md](FRAMEWORK.md): Complete pillar definitions and scoring questions
 - [IMPLEMENTATIONS.md](IMPLEMENTATIONS.md): Community implementations of the specification
 - [Are We Building AI Agents Like We Built Microservices?](https://aradhye.com/ai-agents-well-architected-framework/): The post that introduced AWAF
