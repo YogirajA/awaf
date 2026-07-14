@@ -28,7 +28,7 @@ The specification defines:
 - What risk levels map to what scores
 - What "Production Ready" vs "High Risk" means, precisely
 
-The reference implementation is [awaf-cli](https://github.com/YogirajA/awaf-cli): a CLI and GitHub Action that scores your agent automatically on every commit.
+The reference implementation is [awaf-cli](https://github.com/YogirajA/awaf-cli): a CLI and GitHub Action that scores your agent in CI.
 
 ---
 
@@ -155,7 +155,7 @@ When citing AWAF, always reference the version: _"This agent is designed to AWAF
 
 ### With the reference implementation
 
-[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.4 as a CLI tool and GitHub Action. It runs on every PR that touches agent code and produces a scored report with specific cited findings.
+[awaf-cli](https://github.com/YogirajA/awaf-cli) implements AWAF v1.4 as a CLI tool and [GitHub Action](https://github.com/YogirajA/awaf-action). Wire it into a scheduled or pull-request check to produce a scored report with specific cited findings.
 
 ```bash
 pip install awaf
